@@ -3,9 +3,6 @@ int ledVermelho = 13;
 
 int botaoVerde = 5;
 int botaoVermelho = 4;
-int botaoReset = 16;
-
-bool pressionado = false;
 
 void setup() {
 pinMode(ledVerde, OUTPUT);
@@ -13,24 +10,23 @@ pinMode(ledVermelho, OUTPUT);
 
 pinMode(botaoVerde, INPUT);
 pinMode(botaoVermelho, INPUT);
-pinMode(botaoReset, INPUT);
-
 
 }
 void loop() {
-  if ((digitalRead(botaoVerde) == HIGH) and (pressionado == false)) {
-    pressionado = true;
+  if (digitalRead(botaoVerde) == HIGH) {   
     digitalWrite(ledVerde, HIGH);
+    Reset();
   }
 
-  if ((digitalRead(botaoVermelho) == HIGH) and (pressionado == false)) {
-    pressionado = true;
+  if (digitalRead(botaoVermelho) == HIGH) {   
     digitalWrite(ledVermelho, HIGH);
-  }
-
-  if (digitalRead(botaoReset) == HIGH) {
-    pressionado = false;
-    digitalWrite(ledVerde, LOW);
-    digitalWrite(ledVermelho, LOW);
+    Reset();
   }
 }
+
+void Reset(){
+  delay(5000);
+  digitalWrite(ledVerde, LOW);
+  digitalWrite(ledVermelho, LOW);
+}
+
