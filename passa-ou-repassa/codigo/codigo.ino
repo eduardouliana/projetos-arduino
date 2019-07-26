@@ -1,12 +1,12 @@
-int ledVerde = 12;
-int ledVermelho = 13;
+int lampadaVerde = 6;
+int lampadaVermelha = 7;
 
-int botaoVerde = 5;
-int botaoVermelho = 4;
+int botaoVerde = 8;
+int botaoVermelho = 9;
 
 void setup() {
-pinMode(ledVerde, OUTPUT);
-pinMode(ledVermelho, OUTPUT);
+pinMode(lampadaVerde, OUTPUT);
+pinMode(lampadaVermelha, OUTPUT);
 
 pinMode(botaoVerde, INPUT);
 pinMode(botaoVermelho, INPUT);
@@ -14,19 +14,19 @@ pinMode(botaoVermelho, INPUT);
 }
 void loop() {
   if (digitalRead(botaoVerde) == HIGH) {   
-    digitalWrite(ledVerde, HIGH);
+    digitalWrite(lampadaVerde, HIGH);
     Reset();
   }
 
   if (digitalRead(botaoVermelho) == HIGH) {   
-    digitalWrite(ledVermelho, HIGH);
+    digitalWrite(lampadaVermelha, HIGH);
     Reset();
   }
 }
 
 void Reset(){
   delay(5000);
-  digitalWrite(ledVerde, LOW);
-  digitalWrite(ledVermelho, LOW);
+  digitalWrite(lampadaVerde, LOW);
+  digitalWrite(lampadaVermelha, LOW);
 }
 
